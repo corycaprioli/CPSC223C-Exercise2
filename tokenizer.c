@@ -1,6 +1,6 @@
 //****************************************************************************************************************************
-//Program name: "Tokenizer".  This program demonstrates how to read from a file amd
-//tokenize the string from the file based on a delimiter.  Copyright (C) 2021 Cory Caprioli    *
+//Program name: "Tokenizer".  This program demonstrates how to read from a file and                                          *
+//tokenize the string from the file based on a delimiter.  Copyright (C) 2021 Cory Caprioli                                  *
 //                                                                                                                           *
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License  *
 //version 3 as published by the Free Software Foundation.                                                                    *
@@ -15,12 +15,15 @@
 #include <stdlib.h>
 #include <string.h>
 
+// Program Name: Tokenizer
+// Prgrammer: Cory Caprioli
+
 // this program is called a tokenizer. It takes a filename from the user and extracts
 // the file's content into an array. it then gets a delimiter from the user to break up
-// or tokenize the string into smaller strings, called tokens, based on that delimiter using strtok
-// finally it prints out each token and stores them into an array.
+// or tokenizes the string into smaller strings, called tokens, based on that delimiter
+// using the strtok function and finally it stores each token into an array and prints them out
 
-int main(int argc, char const *argv[]) {
+int main() {
 
   char * token;
   char * filename = (char *)malloc(4096 * sizeof(char));
@@ -28,15 +31,17 @@ int main(int argc, char const *argv[]) {
   char * file_content = (char *)malloc(16384 * sizeof(char));
   char * tokens_arr[500];
 
-  printf("Welcome to Epic Software Systems, Inc. Head of Systems Lab: Cory Caprioli\n"); //greet the user
-  printf("Enter the name of a file to be tokenized: "); //ask the user for a file name
+  printf("Welcome to Epic Software Systems, Inc. Head of Systems Lab: Cory Caprioli\n"); // greet the user
+  printf("Enter the name of a file to be tokenized: "); // ask the user for a file name
 
-  scanf("%s", filename); //get the file name from the user
-  getchar();
+  scanf("%s", filename); // get the file name from the user
+  getchar(); // clears the buffer of any newlines to not interfer with fgets later
 
   FILE * fptr = fopen(filename, "r"); // create a file pointer and open the file to be read from
+
   int k = 0;
   int onebyte;
+  
   while ((onebyte = fgetc(fptr)) != EOF) { // read byte by byte until the end of file is reached
     file_content[k] = onebyte; // input each byte into the array
     k++; // increment to next array location
