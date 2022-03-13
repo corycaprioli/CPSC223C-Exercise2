@@ -41,7 +41,7 @@ int main() {
 
   int k = 0;
   int onebyte;
-  
+
   while ((onebyte = fgetc(fptr)) != EOF) { // read byte by byte until the end of file is reached
     file_content[k] = onebyte; // input each byte into the array
     k++; // increment to next array location
@@ -64,7 +64,7 @@ int main() {
 
   do {
     tokens_arr[i] = token; // before the loop starts input the first token we got outside the loop into the tokens array
-    // while in the loop input each token into the tokens array
+                          // while in the loop input each token into the tokens array
     i++; // increment to the next array location
   } while ((token = strtok(NULL, delim))); // loop until there are no tokens left and the file content array is NULL
 
